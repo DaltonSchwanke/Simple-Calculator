@@ -1,0 +1,18 @@
+body{
+    background-color: pink;
+}
+
+.header{
+    text-align: center;
+}
+
+h1{
+    font-family:'Courier New', monospace;
+    font-weight: bold;
+
+    
+}
+
+h3{
+    font-family:'Courier New', monospace;
+}
