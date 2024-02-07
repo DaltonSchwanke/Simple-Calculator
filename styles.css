@@ -16,3 +16,7 @@ h1{
 h3{
     font-family:'Courier New', monospace;
 }
+
+#textField{
+    height: 70px;
+}
