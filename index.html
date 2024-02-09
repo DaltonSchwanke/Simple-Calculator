@@ -4,20 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/foundation.css"> 
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="script.js"></script>
 </head>
-<body>
-    <div class="header">
-        <div class="cell large-6 medium-12 columns">
-            <h1>Simple Calculator</h1>
-        </div>
-        <div class="cell large-6 medium-12 columns">
-            <h3>Dalton Schwanke</h3>
-        </div>
+<body >
+   <div id="mydiv">
+        <div id="mydivheader"></div>
+        <form>
+            <div class="inputOutput"></div>
+            <div class="row">
+                <button id="AC">AC</button>
+                <button id="DEL">DEL</button>
+                <button id="equal">=</button>
+                <button id="add">+</button>
+            </div>
+            <div class="row">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>-</button>
+            </div>
+            <div class="row">
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>x</button>
+            </div>
+            <div class="row">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>/</button>
+            </div>
+            <div class="row">
+                <button id="bottomLeft">0</button>
+                <button>Sine</button>
+                <button>Cosine</button>
+                <button id="bottomRight">Tangent</button>
+            </div>
+        </form>
     </div>
-    <textarea type="text" id="textField" placeholder="0"></textarea>
-
-
 </body>
 </html>
