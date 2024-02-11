@@ -58,6 +58,7 @@ function clear(){
 
 // solves the equation and prints out the result to the header div 
 function solve(){
+    event.preventDefault();
     let x = document.getElementById("result").value;
     let y = math.evaluate(x);
     document.getElementById("result").value = y;

@@ -41,6 +41,8 @@
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
     overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #result{
@@ -52,8 +54,6 @@
     font-family:Arial, Helvetica, sans-serif;
     font-weight: 600;
     font-size: 2rem;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 
