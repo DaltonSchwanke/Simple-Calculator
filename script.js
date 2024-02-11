@@ -1,13 +1,10 @@
+// Event listener that reads div click and movement
 document.addEventListener('DOMContentLoaded', function() {
-  // Make the DIV element draggable:
   dragElement(document.getElementById("mydiv"));
 });
 
-// Make the DIV element draggable:
-dragElement(document.getElementById("mydiv")); // Corrected ID to match the HTML
 
-// ... rest of the script.js content
-
+//drag fucntion to move calculator around the window
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -48,3 +45,22 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+
+function dis(value){
+    document.getElementById("result").value += value;
+}
+
+// Function to clear the contents on screen 
+function clear(){
+    document.getElementById("result").value = "";
+}
+
+// solves the equation and prints out the result to the header div 
+function solve(){
+    let x = document.getElementById("result").value;
+    let y = math.evaluate(x);
+    document.getElementById("result").value = y;
+}
+
+

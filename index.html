@@ -7,40 +7,42 @@
     <link rel="stylesheet" href="styles.css"> 
     <script src="script.js"></script>
 </head>
-<body >
+<body class="background">
    <div id="mydiv">
         <div id="mydivheader"></div>
         <form>
-            <div class="inputOutput"></div>
-            <div class="row">
-                <button id="AC">AC</button>
-                <button id="DEL">DEL</button>
-                <button id="equal">=</button>
-                <button id="add">+</button>
+            <div class="inputOutput">
+                <input type="text" id="result">
             </div>
             <div class="row">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>-</button>
+                <button id="C" onclick="clear(); return false;">C</button>
+                <button id="decimal" onclick="dis('.'); return false;">.</button>
+                <button id="equal" onclick="solve(); return false;">=</button>
+                <button id="add" onclick="dis('+'); return false;">+</button>
             </div>
             <div class="row">
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>x</button>
+                <button id="one" onclick="dis('1'); return false;">1</button>
+                <button id="two" onclick="dis('2'); return false;">2</button>
+                <button id="three" onclick="dis('3'); return false;">3</button>
+                <button id="subtract" onclick="dis('-'); return false;">-</button>
             </div>
             <div class="row">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>/</button>
+                <button id="four" onclick="dis('4'); return false;">4</button>
+                <button id="five" onclick="dis('5'); return false;">5</button>
+                <button id="six" onclick="dis('6'); return false;">6</button>
+                <button id="multiply" onclick="dis('x'); return false;">x</button>
             </div>
             <div class="row">
-                <button id="bottomLeft">0</button>
-                <button>Sine</button>
-                <button>Cosine</button>
-                <button id="bottomRight">Tangent</button>
+                <button id="seven" onclick="dis('7'); return false;">7</button>
+                <button id="eight" onclick="dis('8'); return false;">8</button>
+                <button id="nine" onclick="dis('9'); return false;">9</button>
+                <button id="divide" onclick="dis('/'); return false;">/</button>
+            </div>
+            <div class="row">
+                <button id="zero" onclick="dis('0'); return false;">0</button>
+                <button id="sine" onclick="dis('sine'); return false;">Sine</button>
+                <button id="cosine" onclick="dis('cosine'); return false;">Cosine</button>
+                <button id="tangent" onclick="dis('tangent'); return false;">Tangent</button>
             </div>
         </form>
     </div>

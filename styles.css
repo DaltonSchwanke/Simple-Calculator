@@ -1,72 +1,94 @@
+/* div containing whole calculator and contents */
 #mydiv {
     position: absolute !important;
     z-index: 9;
     width: 300px;
-    background-color: rgba(13, 53, 87, 0.2);
-    border: 3px solid rgba(13, 53, 87 , 0.25);
+    background-color: transparent;
+    border: 3px solid black;
     text-align: center;
     border-radius: 25px;
     box-shadow: 0px 0px 20px black;
     overflow-y: hidden;
     overflow-x: hidden;
+    backdrop-filter: blur(10px);
   }
 
-
-
+/* Background image for page */
+.background{
+    width: 100%;
+    height: 100%;
+    background: url(background.jpg) !important;
+}
+ 
   
-
-  #mydivheader {
+/* header div for dragging and dropping*/
+#mydivheader {
     padding: 10px;
     padding-bottom: 0px;
     cursor: move;
     z-index: 10;
     background-color: transparent;
-  }
+}
 
-
-  .inputOutput{
+/* Output bar at the top of the calculator */
+.inputOutput{
     margin: 10px;
-    border-radius: 10px;
+    margin-top: 0px;
+    border-radius: 15px;
     height: 80px;
-    background-color:rgba(13, 53, 87, 0.1);
-    border: 2px solid rgba(13, 53, 87, .2); 
+    background-color: transparent;
+    border: 2px solid black; 
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-  }
+    overflow: hidden;
+}
+
+#result{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: transparent;
+    margin: 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 
-
-
-  .row{
+/* Row configuration for button layout */ 
+.row{
     display: flex;
     height: 80px;
     width: 100% !important;
     margin: 0px;
     padding: 0px;
-  }
+}
 
-
-  button{
+/* Button styles to make grid pattern */ 
+button{
     width: 25%;
-    color: rgba(13, 53, 87, 0.4);
-    background-color:rgba(13, 53, 87, 0.1);
-    border-color: rgba(13, 53, 87, 0.2);
+    color: black;
+    background-color: transparent;
+    border-color: black;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: 600;
     height: 80px;
-  }
-
-  button:hover{
-    background-color: rgba(13, 53, 87, 0.2);
+}
+/*  hover effect of buttons */
+button:hover{
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
-
-#bottomRight{
-    border-bottom-right-radius: 20px;
+/* specific styles for rounding bottom right button to match outer border */
+#tangent{
+    border-bottom-right-radius: 22px;
 }
 
-#bottomLeft{
-    border-bottom-left-radius: 20px;
+/* specific styles for rounding bottom left button to match outer border */
+#zero{
+    border-bottom-left-radius: 22px;
 }
 
 
