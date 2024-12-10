@@ -1,67 +1,117 @@
-// Event listener that reads div click and movement
-document.addEventListener('DOMContentLoaded', function() {
+let isInsideFunction = false; 
+
+/**
+* Set div drag function when the page loads.
+*/
+document.addEventListener('DOMContentLoaded', function () {
   dragElement(document.getElementById("mydiv"));
 });
 
 
-//drag fucntion to move calculator around the window
+/**
+ *  The function below is used to select and drag the calculator 
+ *  around the page.
+ * 
+ * @param {*} elmnt element to drag
+ */
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
     document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
   } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
     elmnt.onmousedown = dragMouseDown;
   }
 
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
-    // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
   }
 
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-    // calculate the new cursor position:
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
 
   function closeDragElement() {
-    // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
   }
 }
 
-
-function dis(value){
-    document.getElementById("result").value += value;
-}
-
-// Function to clear the contents on screen 
-function clear(){
-    document.getElementById("result").value = "";
-}
-
-// solves the equation and prints out the result to the header div 
-function solve(){
+/**
+* Clears the values stored in the 'result' div resetting the 
+* expression.
+*/
+function clearInput(event) {
+  if (event) {
     event.preventDefault();
-    let x = document.getElementById("result").value;
+  }
+  console.log("Ran Clear");
+  document.getElementById("result").value = "";
+  isInsideFunction = false;
+}
+
+/**
+* The dis function places the character in the results div on the page when the 
+* user clicks on one of corresponding button on the page.
+*/
+function dis(value) {
+  event.preventDefault();
+  console.log("Ran Dis");
+  const resultField = document.getElementById("result");
+
+  // Handle function buttons
+  if (value === "sine" || value === "cosine" || value === "tangent") {
+    if (!isInsideFunction) {
+      resultField.value += `${value}(`;
+      isInsideFunction = true;
+    }
+  } else if (isInsideFunction && /[+\-x÷]/.test(value)) {
+    resultField.value += `)${value}`;
+    isInsideFunction = false; 
+  } else if (isInsideFunction && !/[+\-x÷=]/.test(value)) {
+    resultField.value += value;
+  } else {
+    resultField.value += value;
+  }
+}
+
+
+
+/**
+* solve is the function that is ran when the user clicks on the '=' button
+* it will get the value in 'result' as the expression and then replace the 
+* operators before called the Math.js function 'evaluate' that will solve the
+* expression and set the value of 'result' to the value that is returned. 
+*/
+function solve() {
+  event.preventDefault();
+  console.log("Ran Solve");
+  let x = document.getElementById("result").value;
+
+  // Replace displayed operators with valid Math.js operators
+  x = x.replace(/x/g, '*');
+  x = x.replace(/÷/g, '/');
+
+  // Replace sine, cosine, tangent with Math.js equivalents
+  x = x.replace(/sine\(/g, 'sin(');
+  x = x.replace(/cosine\(/g, 'cos(');
+  x = x.replace(/tangent\(/g, 'tan(');
+
+  try {
     let y = math.evaluate(x);
     document.getElementById("result").value = y;
+  } catch (error) {
+    document.getElementById("result").value = "Error";
+  }
 }
-
-
